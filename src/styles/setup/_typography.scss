@@ -1,0 +1,47 @@
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0 0 0.4em 0;
+  padding: 0;
+  line-height: 1.2;
+  color: $primary;
+  font-weight: $font-weight-base;
+  font-family: $font-family-base;
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+
+    &:hover {
+      text-decoration: inherit;
+    }
+  }
+}
+
+h1, .h1 {
+  font-size: 3.6rem;
+}
+
+h2, .h2 {
+  font-size: 3.4rem;
+}
+
+h3, .h3 {
+  font-size: 3rem;
+}
+
+h4, .h4 {
+  font-size: 2.6rem;
+}
+
+h5, .h5 {
+  font-size: 2.4rem;
+}
+
+h6, .h6 {
+  font-size: 2rem;
+}
+
+.h1, .h2, .h3, .h4, .h5,.h6 {
+  display: block;
+}

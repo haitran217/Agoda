@@ -1,0 +1,37 @@
+.header-login {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 16px;
+    
+    &__container {
+        display: flex;
+
+        &-language {
+        }
+        &-code {
+        
+        }
+        &-register {
+
+        }
+    }
+
+    &__button {
+        color: rgb(83, 146, 249);
+        margin: 10px 3px;
+        border: none;
+        padding: 10px;
+        font-size: 14px;
+        text-transform: uppercase;
+        background-color: inherit;  
+
+        &--border {
+            border-radius: 3px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(83, 146, 249);
+        }
+    }
+}

@@ -1,0 +1,19 @@
+#wrapper { 
+  width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+#main-body {
+  padding-bottom: 270px;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 270px;
+}
