@@ -63,33 +63,32 @@ class Filter extends React.Component {
       listFilter: []
     }
 
-    this.checkedItem = this.checkedItem.bind(this);
+    // this.checkedItem = this.checkedItem.bind(this);
+    // this.listFilter = this.listFilter.bind(this);
   }
 
-  checkedItem(content, status) {
-    let temp = this.state.listFilter;
-    if (status === true) {
-      temp.push(content);
-    } else {
-      for (let i = 0; i < temp.length; i++) {
-        if (temp[i] === content) {
-          temp.splice(i, i + 1)
-        }
-      }
-    }
-    this.setState({
-      listFilter: temp
-    })
-  }
-
+  // checkedItem(content, status) {
+  //   let temp = this.state.listFilter;
+  //   if (status === true) {
+  //     temp.push(content);
+  //   } else {
+  //     for (let i = 0; i < temp.length; i++) {
+  //       if (temp[i] === content) {
+  //         temp.splice(i, i + 1)
+  //       }
+  //     }
+  //   }
+  //   this.setState({
+  //     listFilter: temp
+  //   })
+  // }
   render() {
-    const listFilter = this.state.filterList.map((element, index) => {
+    console.log(this.props.data);
+    
+    let listFilter = this.props.data.map((element, index) => {
       return <FilterItem
-        changeStatus={this.checkedItem}
-        status={element.status}
-        show={element.showTooltip}
         key={index}
-        content={element.listItem}
+        content={element.ItemList}
         position='bottom'
         children={element.value} />
     })

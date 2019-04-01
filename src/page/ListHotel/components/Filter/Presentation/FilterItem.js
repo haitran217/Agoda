@@ -7,6 +7,7 @@ export default class FilterItem extends React.Component {
     this.state = {
       showTooltip: false,
     }
+    this.wrapperRef = React.createRef();
     this.showAll = this.showAll.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this)
   }
@@ -17,7 +18,24 @@ export default class FilterItem extends React.Component {
   }
 
   handleInputChange(event) {
-    this.props.changeStatus(event.target.name, event.target.checked)
+    // this.props.changeStatus(event.target.name, event.target.checked)
+  }
+
+  componentDidMount() {
+    document.addEventListener('click', this.handleClick)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClick)
+  }
+
+  handleClick = (event) => {
+    const { target } = event
+    if (!this.wrapperRef.current.contains(target)) {
+      this.setState({
+        showTooltip: false
+      })
+    }
   }
 
   render() {
@@ -28,14 +46,14 @@ export default class FilterItem extends React.Component {
             name={element.content}
             type="checkbox"
             checked={this.props.status}
-            onChange={this.handleInputChange}/>
-          <label>{element.content}</label>      
+            onChange={this.handleInputChange} />
+          <label>{element.content}</label>
         </div>
       )
     })
     return (
-      <div className='filter-item'>
-        {this.state.showTooltip && <div className = {`filter-item__content ${this.props.position}`}>
+      <div className='filter-item' ref={this.wrapperRef}>
+        {this.state.showTooltip && <div className={`filter-item__content ${this.props.position}`}>
           <form>
             {itemFilter}
           </form>
