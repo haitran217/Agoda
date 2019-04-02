@@ -31,7 +31,11 @@ class ListHotel extends React.Component {
   getListFilter() {
     let list = []
     Object.keys(this.state.allData.FilterList).map(key => {
-      if (key === 'Popular'){
+      if (key === 'Popular'||
+          key === 'ReviewScores'||
+          key === 'Facilities'||
+          key === 'StarRating'||
+          key === 'Area') {
         list.push({...this.state.allData.FilterList[key]})
       }
     })

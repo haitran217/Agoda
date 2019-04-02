@@ -6,6 +6,7 @@ export default class FilterItem extends React.Component {
     super();
     this.state = {
       showTooltip: false,
+      checked: false
     }
     this.wrapperRef = React.createRef();
     this.showAll = this.showAll.bind(this);
@@ -18,7 +19,14 @@ export default class FilterItem extends React.Component {
   }
 
   handleInputChange(event) {
-    // this.props.changeStatus(event.target.name, event.target.checked)
+    this.setState({
+      checked : !this.state.checked
+    })
+    let data = {
+      id: this.props.filterId,
+      content: event.target.name
+    }
+    this.props.changeStatus(data, event.target.checked)
   }
 
   componentDidMount() {
@@ -43,11 +51,13 @@ export default class FilterItem extends React.Component {
       return (
         <div key={index} >
           <input
-            name={element.content}
-            type="checkbox"
-            checked={this.props.status}
-            onChange={this.handleInputChange} />
-          <label>{element.content}</label>
+            name = {element.Name}
+            type = "checkbox"
+            checked = {this.state.checked}
+            onChange = {this.handleInputChange}
+            idfilter = {this.props.filterId}  />
+          {element.Name && <label className = "nonestart">{element.Name}</label>}
+          {this.props.filterId === 'starratingFilterList' && <label className = "start">{element.Id}</label>}
         </div>
       )
     })
